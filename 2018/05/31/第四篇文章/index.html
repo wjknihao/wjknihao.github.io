@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>server笔记 | wjknihao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="server">
+    <meta name="description" content="1.web课程的介绍 学子商城  1.项目的流程/数据库(mysql)/    JavaScript基础/服务器Node.js  2.HTML基础/HTTP&amp;amp;AJAX/CSS基础/css高级/Bootstrap  3.JS高级/BOM&amp;amp;&amp;amp;DOM/jQuery/Vue.js  4.Vue.js生态圈/HTML5高级/微信的公众号(小程序)/混编  5.Angular生态圈/">
+<meta name="keywords" content="server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="server笔记">
+<meta property="og:url" content="http://wjknihao.github.io/2018/05/31/第四篇文章/index.html">
+<meta property="og:site_name" content="wjknihao">
+<meta property="og:description" content="1.web课程的介绍 学子商城  1.项目的流程/数据库(mysql)/    JavaScript基础/服务器Node.js  2.HTML基础/HTTP&amp;amp;AJAX/CSS基础/css高级/Bootstrap  3.JS高级/BOM&amp;amp;&amp;amp;DOM/jQuery/Vue.js  4.Vue.js生态圈/HTML5高级/微信的公众号(小程序)/混编  5.Angular生态圈/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-31T13:41:26.889Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="server笔记">
+<meta name="twitter:description" content="1.web课程的介绍 学子商城  1.项目的流程/数据库(mysql)/    JavaScript基础/服务器Node.js  2.HTML基础/HTTP&amp;amp;AJAX/CSS基础/css高级/Bootstrap  3.JS高级/BOM&amp;amp;&amp;amp;DOM/jQuery/Vue.js  4.Vue.js生态圈/HTML5高级/微信的公众号(小程序)/混编  5.Angular生态圈/">
+    
+        <link rel="alternate" type="application/atom+xml" title="wjknihao" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527260495745&di=531832bf7c1fefd930599043e575400b&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201608%2F11%2F20160811201242_MW82J.jpeg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/234.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/123.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wjk</h5>
+          <a href="mailto:2251757502@qq.com" title="2251757502@qq.com" class="mail">2251757502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.wjknihao.cn"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/all"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wjknihao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/56561wjkwujinke" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://user.qzone.qq.com/2251757502?ADUIN=2251757502&ADSESSION=1527244525&ADTAG=CLIENT.QQ.5575_MyTip.0&ADPUBNO=26808&source=namecardhoverstar" target="_blank" >
+                <i class="icon icon-lg icon-qq"></i>
+                qq
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">server笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">server笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-31T13:31:40.000Z" itemprop="datePublished" class="page-time">
+  2018-05-31
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.web课程的介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.学习之前的准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.windows系统常用快捷键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.软件工程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.软件生命周期</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.服务器 
+  域名/ip地址  www.baidu.com  端口号  :80  协议   http://  http://www.baidu.com:80
+  访问本地服务器  在cmd中输入 ipconfig  得到本机的ip地址  在浏览器的地址栏输入  http://ip地址:80
+  127.0.0.1—-&gt;本机IP  http://127.0.0.1:80
+  http://localhost:80
+  访问同学的服务器  1.同学必须把文件放入public文件夹  2.启动服务器  3.告诉ip地址  http://172.163.2.109:80
+作业：1、下载并安装Node.js解释器。nodejs.org2、下载“达内WebServer”。3、编写自己的网页保存到服务器public目录下。4、启动Web服务器。5、使用客户端浏览器访问Web服务器上的网页6、访问同桌服务器中的文件
+</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">7.</span> <span class="post-toc-text">
+  域名/ip地址  www.baidu.com  端口号  :80  协议   http://  http://www.baidu.com:80
+  访问本地服务器  在cmd中输入 ipconfig  得到本机的ip地址  在浏览器的地址栏输入  http://ip地址:80
+  127.0.0.1—-&gt;本机IP  http://127.0.0.1:80
+  http://localhost:80
+  访问同学的服务器  1.同学必须把文件放入public文件夹  2.启动服务器  3.告诉ip地址  http://172.163.2.109:80
+作业：1、下载并安装Node.js解释器。nodejs.org2、下载“达内WebServer”。3、编写自己的网页保存到服务器public目录下。4、启动Web服务器。5、使用客户端浏览器访问Web服务器上的网页6、访问同桌服务器中的文件
+</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第四篇文章"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">server笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-31 21:31:40" datetime="2018-05-31T13:31:40.000Z"  itemprop="datePublished">2018-05-31</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+             <h2>1.web课程的介绍</h2><br> <a href="http://www.codeboy.com/" target="_blank" rel="noopener">学子商城</a><br><br>  1.项目的流程/数据库(mysql)/<br>    JavaScript基础/服务器Node.js<br>  2.HTML基础/HTTP&amp;AJAX/CSS基础/css高级/Bootstrap<br>  3.JS高级/BOM&amp;&amp;DOM/jQuery/Vue.js<br>  4.Vue.js生态圈/HTML5高级/微信的公众号(小程序)/混编<br>  5.Angular生态圈/React生态圈/pythonWeb-django/毕业项目<br><br><h2>2.学习之前的准备</h2>
+
+<pre><code>1.英文单词要求：200多个
+2.行业背景要求：0要求
+3.心态准备 
+4.键速要求：350次/分钟
+</code></pre><h2>3.windows系统常用快捷键</h2>
+
+<p>  windows+d: 显示/隐藏桌面<br>  windows+e: 打开文件资源管理器<br>  windows+r: 打开运行窗口calc/mspaint/cmd<br>  alt+tab: 多个窗口间的切换（往右）<br>  alt+shift+tab:多个窗口的切换（往左）<br>  alt+f4:关闭当前窗口</p>
+<h2>4.软件工程</h2>
+
+<p>  IBM：DOS系统(磁盘管理系统)<br>  Bill Gates—&gt;  Microsoft<br>  —&gt;DOS—&gt;windows</p>
+<p>  1.软件过程<br>  2.软件测试<br>  3.软件度量<br>  4.软件质量保证<br>  5.软件标准 国标 军标</p>
+<h2>5.软件生命周期</h2>
+
+<p>  1.软件定义期<br>    1)可行性研究阶段–《可行性研究报告》<br>        技术、设备、人力、时间、资金、回报率、政策法规<br>    2)需求分析阶段–《软件需求说明书/规约》<br>        功能性需求点：具体功能<br>        非功能性的需求点：安全需求，可靠性需求，处理精度…..<br>  2.软件的开发期<br>    3)概要设计阶段–《概要设计说明书》<br>      有哪些子系统，哪些模块，模块的功能<br>    4)详细设计阶段<br>      每个功能具体的实现细节（对象，函数，算法）<br>    5)编码实现阶段—《项目开发进度报告》<br>      UI设计师 出效果图<br>      前端工程师 把效果图变成浏览器能运行的代码<br>      后端工程师 为前台网页提供数据支持</p>
+<pre><code>6)测试阶段--《测试报告》
+</code></pre><p>  3.软件的维护期</p>
+<pre><code>7)项目的部署阶段 linux系统
+8)项目维护阶段
+</code></pre><p>  学子商城的系统<br>  前台子系统：商品模块，用户模块，购物车模块<br>  后台子系统：商品模块，用户模块，订单模块<br>  移动端子系统：商品模块，用户模块，购物车模块</p>
+<p></p><h2>6.服务器 <h2><p></p>
+<p>  域名/ip地址  <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>  端口号  :80<br>  协议   http://<br>  <a href="http://www.baidu.com:80" target="_blank" rel="noopener">http://www.baidu.com:80</a></p>
+<p>  访问本地服务器<br>  在cmd中输入 ipconfig<br>  得到本机的ip地址<br>  在浏览器的地址栏输入<br>  <a href="http://ip地址:80" target="_blank" rel="noopener">http://ip地址:80</a></p>
+<p>  127.0.0.1—-&gt;本机IP<br>  <a href="http://127.0.0.1:80" target="_blank" rel="noopener">http://127.0.0.1:80</a></p>
+<p>  <a href="http://localhost:80" target="_blank" rel="noopener">http://localhost:80</a></p>
+<p>  访问同学的服务器<br>  1.同学必须把文件放入public文件夹<br>  2.启动服务器<br>  3.告诉ip地址<br>  <a href="http://172.163.2.109:80" target="_blank" rel="noopener">http://172.163.2.109:80</a></p>
+<p>作业：<br>1、下载并安装Node.js解释器。nodejs.org<br>2、下载“达内WebServer”。<br>3、编写自己的网页保存到服务器public目录下。<br>4、启动Web服务器。<br>5、使用客户端浏览器访问Web服务器上的网页<br>6、访问同桌服务器中的文件</p>
+</h2></h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-31T13:41:26.889Z" itemprop="dateUpdated">2018-05-31 21:41:26</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/05/31/第四篇文章/" target="_blank" rel="external">http://wjknihao.github.io/2018/05/31/第四篇文章/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wjknihao.github.io">
+            <img src="/img/123.gif" alt="wjk">
+            wjk
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/05/31/第四篇文章/&title=《server笔记》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/05/31/第四篇文章/&title=《server笔记》 — wjknihao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/05/31/第四篇文章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《server笔记》 — wjknihao&url=http://wjknihao.github.io/2018/05/31/第四篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/05/31/第四篇文章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/25/第三篇文章/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">爆冷的冷知识共享,不谢拿走</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "I2tEkLgP58tv16kQjCL4OLCj-gzGzoHsz",
+            appKey: "UOw37lC8St78BGjXwxzWk0G0",
+            avatar: "mm",
+            placeholder: "欢迎留言，谢谢老板~~~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板！请多打赏！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/zfb.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26092806&auto=1&height=66"></iframe>
+        
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>wjk &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">wjk</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/05/31/第四篇文章/&title=《server笔记》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/05/31/第四篇文章/&title=《server笔记》 — wjknihao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/05/31/第四篇文章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《server笔记》 — wjknihao&url=http://wjknihao.github.io/2018/05/31/第四篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/05/31/第四篇文章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3awXKDMAxF0fz/T9NNdy1wnwSZsXVZMS2JfVgokqzPB1/Hn4v/nXwn/1TrkiFDxrKM4/IiS559imya3KNVZMiQMYBxtvDZMyRQklfD72/2LEOGDBk4CPIwzV+QDBkyZDzFuK4uO6FchgwZMnjoJKnhNY8kiK/X4jJkyFiQwbvu379/5XxDhgwZSzGO8ErDIm/M1fbz+z0yZMjYmsED3LMb7QdcGTJkTGOkmyaNMF5qklKZry5Dhoz9GOkABEkT05Yc3+7p8zJkyNiaUds6gZEAWlv3JuzKkCFjAIOEv06ymIbpIJWUIUPGGMZTxwO1QjcOsrXpDxkyZCzF4O34YhC8/AY+anazlgwZMgYzeABNU0A++IVCswwZMgYwaoBaKcsbarwkliFDxjRGWpqSllyaVsYBWoYMGSMZJEXjW+RDG7w8DmZGZMiQsTgjfbQz/pUGd5I4ypAhYw6jk6Klzf000eQNOBkyZOzNOMIrbcCloTy9lyFDxhxG576T3tUOJP75rwwZMgYweIu/tlhtXIyvIkOGjAmMNBTyJn5tyCxeRYYMGZsyOuUrPwzg7bPaMacMGTL2ZqRh7o3tpgMW/AdAhgwZOzHSMjVdnrwOckh587JkyJAxgNEpSmsjF7VfgJs8V4YMGTLI1zWeaa0oQ4YMGWFqWDuqJOH7poiVIUPG1oynDgN4+pgG68fabTJkyFiQURtx4FTeSnt9XEOGDBnrMX4A4AlBz3f+/A8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '￣へ￣滚回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(>▽<)留下来！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
