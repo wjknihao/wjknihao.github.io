@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wjknihao.github.io/"/>
-  <updated>2018-05-31T14:01:52.124Z</updated>
+  <updated>2018-06-01T15:14:00.546Z</updated>
   <id>http://wjknihao.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MYSQL数据库</title>
+    <link href="http://wjknihao.github.io/2018/06/01/%E7%AC%AC%E4%BA%94%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <id>http://wjknihao.github.io/2018/06/01/第五篇文章/</id>
+    <published>2018-06-01T15:10:17.000Z</published>
+    <updated>2018-06-01T15:14:00.546Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MYSQL数据库"><a href="#MYSQL数据库" class="headerlink" title="MYSQL数据库"></a>MYSQL数据库</h1><h2 id="1-项目中大量数据"><a href="#1-项目中大量数据" class="headerlink" title="1.项目中大量数据"></a>1.项目中大量数据</h2><p>内存：        存储的速度快，空间小；<br>自定义文件:   存储的空间大，不便于使用管理<br>Access/Exel:  灵活性不足，空间大，处理数据能力差<br>专用服务器:   托管到云服务企业中<br>数据库服务器: 安全程度高，管理相对复杂</p><p>database 数据库    quit  放弃  </p><h2 id="2-数据库分类："><a href="#2-数据库分类：" class="headerlink" title="2.数据库分类："></a>2.数据库分类：</h2><p>网状数据库<br>  层次型(树状)数据库<br>  关系型数据库(RDBMS)<br>Relational database manage system(了解)<br>MySQL  SQL server  oracle<br>  非关系型数据库(NoSQL)<br>     MongoDB</p><h2 id="3-MySQL数据库的使用"><a href="#3-MySQL数据库的使用" class="headerlink" title="3.MySQL数据库的使用"></a>3.MySQL数据库的使用</h2><p>  xampp 集成好的服务器(mysql, apache)<br>  (1)开启mysql服务器<br>     C:\xampp\mysql\bin\mysqld.exe<br>     httpd  sshd  ftpd -&gt; deamon (精灵，守护)<br>     都是服务器端的一种服务<br>  (2)mysql客户端<br>     C:\xampp\mysql\bin\mysql.exe<br>     注意：进入数据库使用的来宾账户，不能真正的操作数据库。<br>  (3)使用shell登录mysql<br>h – host    主机<br>P – port    端口<br>u -user     用户<br>p - password 密码<br>    mysql.exe  -h127.0.0.1  -P3306  -uroot  -p<br>简写形式： mysql  -uroot</p><p>  数据完整结构<br>Server -&gt; Database -&gt; Table -&gt;Row(行)-&gt;Column(列)</p><h2 id="4-数据库命令"><a href="#4-数据库命令" class="headerlink" title="4.数据库命令"></a>4.数据库命令</h2><p>  (1) 查看当前数据库服务器中所有的数据库<br>     show databases;<br>  (2) 使用数据库<br>     use 数据库名称;<br>  (3) 查看当前数据库中所有的数据表<br>     show tables;<br>  (4) 查看数据表中有多少列(表头)<br>     desc 表的名称;<br>———————–脚本中常用的————————<br>  (5) 删除数据库<br>     drop  database  if  exists  数据库名称;<br>(6) 创建数据库<br>     create database 数据库名称;<br>  (7) 创建数据表<br>     create table 表名称 (<br>  eid  int,<br>      name varchar(8),<br>      ….列名称<br>     );<br>  (8) 插入数据<br>     insert into 表名称 values(列数据1, 列数据2…);<br>  (9) 查询数据<br>     select * from 表名称;<br>练习：<br>     通过desc查看 phpmyadmin中的表<br>     pma__favorite、pma__recent、pma__users；</p><h2 id="5-mysql命令执行方式"><a href="#5-mysql命令执行方式" class="headerlink" title="5. mysql命令执行方式"></a>5. mysql命令执行方式</h2><p>  (1) 命令行 – 写一行，执行一行(通过shell)。<br>  (2) 脚本形式 – 把所有要执行的命令写入到一个文件中，然后执行整个文件。<br>① 创建 .sql文件；<br>② 打开shell终端<br>   mysql  -uroot  &lt;  拖拽sql文件到这位置<br>  注释：<br>单行注释  # 注释的内容<br>多行注释  /<em> 注释的内容 </em>/<br>  练习：<br>    创建一个2.sql文件，查看phpmyadmin数据中 pma__favorite表的结构；</p><p>   需求：保存员工的信息(编号eid、姓名name、性别sex、电话 phone)<br>①创建数据库<br>②创建数据表<br>③往数据表中插入数据<br>  –1</p><h2 id="6-Sql语句"><a href="#6-Sql语句" class="headerlink" title="6. Sql语句"></a>6. Sql语句</h2><p>  SQL(structured query language)，结构化查询语言，用于操作数据库的语言，绝大多数的关系型数据都支持。</p><p>  练习：往emp数据表中插入5条数据</p><p>  课后练习：<br>创建一个数据库名称xuezi<br>在数据库中创建数据表laptop,含有的列( 编号lid, 标题title, 图片image, 价格price, 库存量stockCount，是否主页推荐 isIndexRecommend )<br>    往数据表中插入5条数据<br>    查询出laptop表中所有的数据</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;MYSQL数据库&quot;&gt;&lt;a href=&quot;#MYSQL数据库&quot; class=&quot;headerlink&quot; title=&quot;MYSQL数据库&quot;&gt;&lt;/a&gt;MYSQL数据库&lt;/h1&gt;&lt;h2 id=&quot;1-项目中大量数据&quot;&gt;&lt;a href=&quot;#1-项目中大量数据&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+      <category term="MYSQL" scheme="http://wjknihao.github.io/tags/MYSQL/"/>
+    
+  </entry>
   
   <entry>
     <title>server笔记</title>
