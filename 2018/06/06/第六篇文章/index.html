@@ -20,19 +20,19 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="MYSQL">
-    <meta name="description" content="MYSQL数据库1.项目中大量数据内存：        存储的速度快，空间小；自定义文件:   存储的空间大，不便于使用管理Access/Exel:  灵活性不足，空间大，处理数据能力差专用服务器:   托管到云服务企业中数据库服务器: 安全程度高，管理相对复杂 database 数据库    quit  放弃   2.数据库分类：网状数据库  层次型(树状)数据库  关系型数据库(RDBMS)R">
-<meta name="keywords" content="MYSQL">
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="复习数据保存方式：内存、文件、Excel(Access)、数据库。关系型数据库-MySQL数据库服务器 mysqld.exe客户端 mysql.exe登录方式： mysql.exe  –h127.0.0.1  -P3306  -uroot -p   mysql  -urootServer -&amp;gt; Database –&amp;gt; Table –&amp;gt; Row -&amp;gt;Column查看数据库:">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MYSQL数据库">
-<meta property="og:url" content="http://wjknihao.github.io/2018/06/01/第五篇文章/index.html">
+<meta property="og:url" content="http://wjknihao.github.io/2018/06/06/第六篇文章/index.html">
 <meta property="og:site_name" content="wjknihao">
-<meta property="og:description" content="MYSQL数据库1.项目中大量数据内存：        存储的速度快，空间小；自定义文件:   存储的空间大，不便于使用管理Access/Exel:  灵活性不足，空间大，处理数据能力差专用服务器:   托管到云服务企业中数据库服务器: 安全程度高，管理相对复杂 database 数据库    quit  放弃   2.数据库分类：网状数据库  层次型(树状)数据库  关系型数据库(RDBMS)R">
+<meta property="og:description" content="复习数据保存方式：内存、文件、Excel(Access)、数据库。关系型数据库-MySQL数据库服务器 mysqld.exe客户端 mysql.exe登录方式： mysql.exe  –h127.0.0.1  -P3306  -uroot -p   mysql  -urootServer -&amp;gt; Database –&amp;gt; Table –&amp;gt; Row -&amp;gt;Column查看数据库:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-01T15:14:00.546Z">
+<meta property="og:updated_time" content="2018-06-06T13:51:16.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MYSQL数据库">
-<meta name="twitter:description" content="MYSQL数据库1.项目中大量数据内存：        存储的速度快，空间小；自定义文件:   存储的空间大，不便于使用管理Access/Exel:  灵活性不足，空间大，处理数据能力差专用服务器:   托管到云服务企业中数据库服务器: 安全程度高，管理相对复杂 database 数据库    quit  放弃   2.数据库分类：网状数据库  层次型(树状)数据库  关系型数据库(RDBMS)R">
+<meta name="twitter:description" content="复习数据保存方式：内存、文件、Excel(Access)、数据库。关系型数据库-MySQL数据库服务器 mysqld.exe客户端 mysql.exe登录方式： mysql.exe  –h127.0.0.1  -P3306  -uroot -p   mysql  -urootServer -&amp;gt; Database –&amp;gt; Table –&amp;gt; Row -&amp;gt;Column查看数据库:">
     
         <link rel="alternate" type="application/atom+xml" title="wjknihao" href="/atom.xml">
     
@@ -147,8 +147,8 @@
         <h1 class="title">MYSQL数据库</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-06-01T15:10:17.000Z" itemprop="datePublished" class="page-time">
-  2018-06-01
+                <time datetime="2018-06-06T13:42:02.000Z" itemprop="datePublished" class="page-time">
+  2018-06-06
 </time>
 
 
@@ -167,18 +167,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MYSQL数据库"><span class="post-toc-number">1.</span> <span class="post-toc-text">MYSQL数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-项目中大量数据"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.项目中大量数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-数据库分类："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.数据库分类：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-MySQL数据库的使用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.MySQL数据库的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-数据库命令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.数据库命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-mysql命令执行方式"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. mysql命令执行方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-Sql语句"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">6. Sql语句</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-删除和更新数据"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.删除和更新数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-解决数据中的中文乱码"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.解决数据中的中文乱码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-列类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.列类型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-列约束"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.列约束</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-第五篇文章"
+<article id="post-第六篇文章"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">MYSQL数据库</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-06-01 23:10:17" datetime="2018-06-01T15:10:17.000Z"  itemprop="datePublished">2018-06-01</time>
+            <time class="post-time" title="2018-06-06 21:42:02" datetime="2018-06-06T13:42:02.000Z"  itemprop="datePublished">2018-06-06</time>
 
             
 
@@ -187,17 +187,18 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="MYSQL数据库"><a href="#MYSQL数据库" class="headerlink" title="MYSQL数据库"></a>MYSQL数据库</h1><h2 id="1-项目中大量数据"><a href="#1-项目中大量数据" class="headerlink" title="1.项目中大量数据"></a>1.项目中大量数据</h2><p>内存：        存储的速度快，空间小；<br>自定义文件:   存储的空间大，不便于使用管理<br>Access/Exel:  灵活性不足，空间大，处理数据能力差<br>专用服务器:   托管到云服务企业中<br>数据库服务器: 安全程度高，管理相对复杂</p>
-<p>database 数据库    quit  放弃  </p>
-<h2 id="2-数据库分类："><a href="#2-数据库分类：" class="headerlink" title="2.数据库分类："></a>2.数据库分类：</h2><p>网状数据库<br>  层次型(树状)数据库<br>  关系型数据库(RDBMS)<br>Relational database manage system(了解)<br>MySQL  SQL server  oracle<br>  非关系型数据库(NoSQL)<br>     MongoDB</p>
-<h2 id="3-MySQL数据库的使用"><a href="#3-MySQL数据库的使用" class="headerlink" title="3.MySQL数据库的使用"></a>3.MySQL数据库的使用</h2><p>  xampp 集成好的服务器(mysql, apache)<br>  (1)开启mysql服务器<br>     C:\xampp\mysql\bin\mysqld.exe<br>     httpd  sshd  ftpd -&gt; deamon (精灵，守护)<br>     都是服务器端的一种服务<br>  (2)mysql客户端<br>     C:\xampp\mysql\bin\mysql.exe<br>     注意：进入数据库使用的来宾账户，不能真正的操作数据库。<br>  (3)使用shell登录mysql<br>h – host    主机<br>P – port    端口<br>u -user     用户<br>p - password 密码<br>    mysql.exe  -h127.0.0.1  -P3306  -uroot  -p<br>简写形式： mysql  -uroot</p>
-<p>  数据完整结构<br>Server -&gt; Database -&gt; Table -&gt;Row(行)-&gt;Column(列)</p>
-<h2 id="4-数据库命令"><a href="#4-数据库命令" class="headerlink" title="4.数据库命令"></a>4.数据库命令</h2><p>  (1) 查看当前数据库服务器中所有的数据库<br>     show databases;<br>  (2) 使用数据库<br>     use 数据库名称;<br>  (3) 查看当前数据库中所有的数据表<br>     show tables;<br>  (4) 查看数据表中有多少列(表头)<br>     desc 表的名称;<br>———————–脚本中常用的————————<br>  (5) 删除数据库<br>     drop  database  if  exists  数据库名称;<br>(6) 创建数据库<br>     create database 数据库名称;<br>  (7) 创建数据表<br>     create table 表名称 (<br>  eid  int,<br>      name varchar(8),<br>      ….列名称<br>     );<br>  (8) 插入数据<br>     insert into 表名称 values(列数据1, 列数据2…);<br>  (9) 查询数据<br>     select * from 表名称;<br>练习：<br>     通过desc查看 phpmyadmin中的表<br>     pma__favorite、pma__recent、pma__users；</p>
-<h2 id="5-mysql命令执行方式"><a href="#5-mysql命令执行方式" class="headerlink" title="5. mysql命令执行方式"></a>5. mysql命令执行方式</h2><p>  (1) 命令行 – 写一行，执行一行(通过shell)。<br>  (2) 脚本形式 – 把所有要执行的命令写入到一个文件中，然后执行整个文件。<br>① 创建 .sql文件；<br>② 打开shell终端<br>   mysql  -uroot  &lt;  拖拽sql文件到这位置<br>  注释：<br>单行注释  # 注释的内容<br>多行注释  /<em> 注释的内容 </em>/<br>  练习：<br>    创建一个2.sql文件，查看phpmyadmin数据中 pma__favorite表的结构；</p>
-<p>   需求：保存员工的信息(编号eid、姓名name、性别sex、电话 phone)<br>①创建数据库<br>②创建数据表<br>③往数据表中插入数据<br>  –1</p>
-<h2 id="6-Sql语句"><a href="#6-Sql语句" class="headerlink" title="6. Sql语句"></a>6. Sql语句</h2><p>  SQL(structured query language)，结构化查询语言，用于操作数据库的语言，绝大多数的关系型数据都支持。</p>
-<p>  练习：往emp数据表中插入5条数据</p>
-<p>  课后练习：<br>创建一个数据库名称xuezi<br>在数据库中创建数据表laptop,含有的列( 编号lid, 标题title, 图片image, 价格price, 库存量stockCount，是否主页推荐 isIndexRecommend )<br>    往数据表中插入5条数据<br>    查询出laptop表中所有的数据</p>
+            <p>复习<br>数据保存方式：内存、文件、Excel(Access)、数据库。<br>关系型数据库-MySQL<br>数据库服务器 mysqld.exe<br>客户端 mysql.exe<br>登录方式： mysql.exe  –h127.0.0.1  -P3306  -uroot -p<br>   mysql  -uroot<br>Server -&gt; Database –&gt; Table –&gt; Row -&gt;Column<br>查看数据库:  show databases;<br>进入某个数据库：use tedu;<br>查看所有的表: show tables;<br>创建表:<br>   Create table stu(<br>     sid int,<br>     name varchar(8),<br>     score int<br>);<br>查看列:  desc stu;<br>插入数据: insert into stu values(‘1’,’tom’,’90’);<br>查询数据: select * from stu;</p>
+<h1 id="1-删除和更新数据"><a href="#1-删除和更新数据" class="headerlink" title="1.删除和更新数据"></a>1.删除和更新数据</h1><p>删除数据<br>delete from 表名称 where 限定条件(lid=‘10’);<br>更新数据<br>update 表名称 set 修改的列(title=’abc’) where 限定条件(lid=’20’)<br>练习：删除编号为30的商品，更新编号为50的商品的价格为 999.99</p>
+<h1 id="2-解决数据中的中文乱码"><a href="#2-解决数据中的中文乱码" class="headerlink" title="2.解决数据中的中文乱码"></a>2.解决数据中的中文乱码</h1><p>  最早出现的编码 ASCII, 是对英文字符以及英文符号进行的编码，例如 h-&gt;78  e-&gt;108; 一共有128个。<br>  Mysql默认使用的编码latin-1；<br>  中国的编码形式<br>   GB2312  主要是对常用的中文进行了编码，大概有6000个字符编码；<br>   GBK 在GB2312上，加入了一些繁体中文，大概两万多个字符编码；<br>   Big5 只支持繁体中文的编码；<br>  国际标准编码<br>   对世界上常用的语言进行了编码，分为utf-8 utf-16 utf-32,兼容ASCII码<br>  解决中文乱码<br>①服务器端创建数据库为utf8<br>    create database tedu charset=utf8;<br>  ②客户端连接的时候为utf8<br>    在脚本的最前边  set  names  utf8;<br>  ③脚本(.sql)文件为utf8<br>    文件另存为 utf8</p>
+<p>学习目标：<br> 列类型(数据类型)<br> 列约束</p>
+<h1 id="3-列类型"><a href="#3-列类型" class="headerlink" title="3.列类型"></a>3.列类型</h1><p> (1)数值类型<br>   整型<br>    tinyint:  微整型 1个字节  存储范围 -128 ~ 127<br>    smallint: 小整型 2个字节 存储范围 -32768~32767<br>    int:      整型   4个字节 存储范围<br>-2147483648 ~ 2147483647<br>    bigint:   大整型 8个字节 非常大了<br>   浮点型<br>    float(m,n):    占4个字节, 表示的范围远比int要大<br>    double(m,n):  占8个字节，比bigint大的多<br>decimal(m,n):  m一共有多少位，n小数点后有多少位<br>bool:  只有两个类型 true/false,或者1/0 ，最终创建后，会被转成 tinyint(1),<br>注意：TRUE 和 FALSE不能加引号。<br> 日期:<br> date:     2018-06-04   年-月-日<br> time:     14:09         小时:分<br> datetime: 2018-06-04 14:09  年-月-日 时:分<br> 字符:<br> varchar(m)：  通过varchar可以指定长度,内容是可变长度，所存储的空间比较大，相比较于char速度慢一些；<br> char(m)： 无论有多少内容，只要没有达到m，就会用空格填满；相比较于varchar，执行速度更快一些；<br> text： 存储空间更大，最多能达到2G</p>
+<h1 id="4-列约束"><a href="#4-列约束" class="headerlink" title="4.列约束"></a>4.列约束</h1><p>  在插入数据的时候，对所要插入的数据进行验证，例如：id不能出现重复的，姓名不能为空等等。<br>(1)主键约束 –  PRIMARY KEY<br>  声明为主键的列不能插入重复的值，也不能插入NULL。表中的记录会自动按照主键列上的值从小到大排序——加快查找速度。<br>  注意：一个表只能有一个主键<br> (2)非空约束 - NOT NULL<br>  在声明了非空约束的列上，不能插入NULL，但是允许插入重复的值。<br> (3)唯一约束 – UNIQUE<br>  在声明了唯一约束的列上，不能插入重复的值，但是可以插入NULL值，而且NULL可以插入多个；<br>  注意：NULL和任何值都不相等。<br> (4)默认约束 – DEFAULT<br>  在声明了默认约束后，如果使用default，就会自动使用default的值，也可以选择不给默认列插入数据<br>  INSERT INTO emp VALUES(2,’Jerry’,DEFAULT,NULL,NULL);<br>INSERT INTO emp (eid,ename) VALUES(3,’David’);</p>
+<p> 课后练习:<br>    创建tedu库<br>创建图书分类表bookCat<br>        编号bid<br>        分类bname<br>        数量bCount<br>     创建图书表book<br>        编号bkid<br>        名称bkname<br>        隶属的分类 bid</p>
+<pre><code>decimal(8,2)
+100800.55
+</code></pre><p>123456.789<em>10^-1<br>    12345.6789<br>    1234.56789</em>10^1<br>123.456789<em>10^2<br>12.3456789</em>10^3<br>1.23456789<em>10^4<br>                 1.234 </em> 10^100<br>     3.78786555<em>10^10<br>     0.00000555</em>10^10</p>
+<p>varchar(6)    char(6)<br>tom    tom\n\n\n<br>david    david\n<br>一    一\n\n\n\n\n<br>一二    一二\n\n\n\n</p>
+<p>练习1：<br>  创建一个jd库，在这个库中创建一个book表<br>  要求 有<br>图书编号 bid,<br>图书名称 bname,<br>上架时间 shelfTime，<br>价格 price，<br>描述 resume，<br>是否加价购 isJia,<br>库存量 stockCount<br>创建完成后，插入4条数据。<br>练习2:<br>  创建tedu库，在tedu中创建一个表 员工emp<br>  员工编号  eid<br>  员工姓名  ename<br>  员工性别  sex<br>  员工生日  birthday<br>  员工婚姻  wedding<br>  员工电话  phone<br>插入3条数据</p>
 
         </div>
 
@@ -206,12 +207,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-01T15:14:00.546Z" itemprop="dateUpdated">2018-06-01 23:14:00</time>
+    最后更新时间：<time datetime="2018-06-06T13:51:16.850Z" itemprop="dateUpdated">2018-06-06 21:51:16</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/01/第五篇文章/" target="_blank" rel="external">http://wjknihao.github.io/2018/06/01/第五篇文章/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/06/第六篇文章/" target="_blank" rel="external">http://wjknihao.github.io/2018/06/06/第六篇文章/</a>
         
     </div>
     
@@ -232,7 +233,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/">MYSQL</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 
 
             
@@ -242,7 +243,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/01/第五篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/06/第六篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -252,22 +253,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/01/第五篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/06/第六篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/01/第五篇文章/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/06/第六篇文章/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/01/第五篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/06/第六篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/01/第五篇文章/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/06/第六篇文章/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -290,7 +291,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/06/06/第六篇文章/" id="post-prev" class="post-nav-link">
+      <a href="/2018/06/06/第七篇文章/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">MYSQL数据库</h4>
       </a>
@@ -299,9 +300,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/05/31/第四篇文章/" id="post-next" class="post-nav-link">
+      <a href="/2018/06/01/第五篇文章/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">server笔记</h4>
+        <h4 class="title">MYSQL数据库</h4>
       </a>
     </div>
   
@@ -415,7 +416,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/01/第五篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/06/第六篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -425,22 +426,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/01/第五篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/06/第六篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/01/第五篇文章/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/06/第六篇文章/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/01/第五篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/06/第六篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/01/第五篇文章/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/06/第六篇文章/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -451,7 +452,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3awbKCMAwFUP//p32bt3AheJOgM7SHFaNAe3AmNkkfj/h4vhxHn79+e3T9+TOTu0YHBgbGbRnP0yMZ8uiuZNLJeTQKBgbGBoyjgc+vqYbjHuN8bhgYGBjVIJiH6aPRMTAwML7BSLLLfKIYGBgYkyT2fLAk1UwWiF/PxTEwMG7IyKvuvz//Sn8DAwPjVoxn8ajelYTUyXz+n4OBgbE0Iw9wkxLbJHAXWhEYGBiLMqqBLy/S9YpxSdL75koMDIylGdVCfG8rWL7xIm8SfPjfwMDAWIgx2R6Rp6xJOK62SN/8DhgYGIsy8u0R5SgetC17UyykuxgYGAsxyiX4uJJXTXSTsQ6/xcDAWJTxy1ieF+zKaS0GBsbGjCSAVp/QawB8eDIGBsYGjDmglwDPW6TllSYGBsbNGdVQmJf+q8vK6iISAwNjB0Z1iXZt+/OCVgQGBsYGjEmaWm0tTLZxHL5WDAyMDRiFjVaTwYLFaLVRioGBsQMjX4SVS2DFZHVyjoGBsQPjqhJ/Lxz3XuibTzAwMDZg9FLTSeqb34uBgYExb2TmQ/bS5mgUDAyMRRnfLuhXy2e9NicGBsbajGqYu6zpOE5i89eEgYGxBqOaplaXidX2ZzPgYmBgbMCYB77qUrL3DxD1YDEwMLZnVDdh9KqAH9oAGBgYGK0BqovFpMRWGBEDA2MDxlXNgCQdnTRBMTAw9mT0tjj0tlNMGgwXNDUxMDDux/gDoHmJh9Zflc4AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOklEQVR42u3aMXLDMAwFUd3/0kqTwkVI7wdizwhcVRo7ovhcIACI68LX/XKtPn/9dvX3+zXJU61LhgwZj2Xc24tvd7+J1bPkHr1FhgwZBzBWL97fp+G4xtjvTYYMGTL41juf8PfKkCFDBg+4vOBMNypDhgwZnSKWbG6PJAnix2txGTJkPJDBu+7fv//I+YYMGTIexbjDK32KhNTOfn7XkSFDxmgGD3A1ZD9wB8MfMmTIGM3gW+dNulozLj0cLSaOMmTIeCCjNv5VC6/pOkGKKUOGjNEM3u7nrXx+eFA7In0TymXIkDGIkbbg+8liGqZRKilDhozRjHTcgSd/tUKXlL4oHZQhQ8YgRu1wkSeOJOlM9/Pm/4YMGTJGM/rFZK2Jxn+m5coyZMg4gMEX5SVrekiQrvNH+SpDhoxjGLWDgf0hZdo+iydEZMiQcSSDJHn9T9LSN0gNZciQMYhBWva1oTESfPk6vP0nQ4aMqYy0KdZp7vNQGw98yJAh4wAGb8fzWrIzEcHvZciQcRojbb2lyWV6kEn2I0OGjHMY/QGITnglIV6GDBkyOmNbtWBdK2WXT8mQIWMoo9bQT0cuePusWELLkCFjNKPTjq+Nf/UHLHg5LUOGjEkMPhixTx/JtzyUxwFXhgwZBzCCqjds0pHytVbEypAhQwZP4/ghZS0RvDo+GTJkHMnoDGGQY06SLKIBVhkyZIxjkCJ2/+LaWEZ6jPoP7TYZMmQ8kFEbcUjHKUgrrTOuIUOGjKGMHyvmapgbx8xWAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

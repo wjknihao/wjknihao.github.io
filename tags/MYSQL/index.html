@@ -152,19 +152,27 @@
             ">全部</a>
         
 
-            <a href="/tags/MYSQL/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light active">MYSQL</a>
+            <a href="/tags/mysql/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">mysql</a>
 
         
 
-            <a href="/tags/all/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light">all</a>
+            <a href="/tags/MYSQL/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">MYSQL</a>
 
         
 
-            <a href="/tags/hexo/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">hexo</a>
+            <a href="/tags/javaScript/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">javaScript</a>
 
         
 
             <a href="/tags/server/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">server</a>
+
+        
+
+            <a href="/tags/all/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">all</a>
+
+        
+
+            <a href="/tags/hexo/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">hexo</a>
 
         
     </nav>
@@ -289,6 +297,71 @@
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3aQW7DMAwEwPz/0ynQU4EmzlKkVBcYnQzDcSY5ENRSj0e8nt/r53VyJ78eXri4uG3u83IlxN9fnNy/ftu7N+Di4p7kJsUrB11/Ki9quLi49+def9n1M9UncXFx/xc3f3XeGOHi4t6Tm2x+khZnrcxt2avh4uI2uGuB6ez19nwXFxd3aCqRrLwkVYvXizfg4uIe4VY3OTmiOjhJwhdcXNwz3H1hx/UQpRqn4uLinuR2ylMejuTPLAamuLi4B7md8Wq15BXKIi4u7kHujnYkL455q4SLi7ubm2xUqpucqb/gkXdDuLi4o9xkpJpvk/L7+Sg3ouPi4m7gFgaccROTRC0DjQ4uLu4G7tr4JBmL5sFHoZDh4uL+KXfqiNXan1LuvHBxcUe51WFngujEK4UGCxcXdxu3M17t45Lm5sXmBxcXdzM3b32mos+8iSkUTVxc3FFupzPKY9DOoKWc7OLi4ra5nRMOeXiat0GdwoeLizvLXRt+JAVu7TDHh0KJi4t7kFs9JlUNU6rbng+FDBcX95bctai0WshwcXHvz+2MZscKHy4u7kFudfOTx6adQ1rRIQxcXNwN3LWRZ7Uxqv7gsXwXFxe3xv0CJxAbMRvelR4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1273847630&web_id=1273847630')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '￣へ￣滚回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(>▽<)留下来！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
+ASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

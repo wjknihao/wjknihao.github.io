@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>MYSQL数据库 | wjknihao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql">
+    <meta name="description" content="复习：更改数据UPDATE 表名称 SET ename=’tom’,age=20 WHERE id=10删除数据DELETE FROM 表名称 WHERE id=20;解决中文乱码问题.sql文件  设置文件存储的编码为 utf8；文件另存为 utf8客户端  sql文件开头  SET NAMES UTF8;服务器端  在创建数据库的时候CREATE DATABASE jd CHARSET=UTF">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MYSQL数据库">
+<meta property="og:url" content="http://wjknihao.github.io/2018/06/06/第七篇文章/index.html">
+<meta property="og:site_name" content="wjknihao">
+<meta property="og:description" content="复习：更改数据UPDATE 表名称 SET ename=’tom’,age=20 WHERE id=10删除数据DELETE FROM 表名称 WHERE id=20;解决中文乱码问题.sql文件  设置文件存储的编码为 utf8；文件另存为 utf8客户端  sql文件开头  SET NAMES UTF8;服务器端  在创建数据库的时候CREATE DATABASE jd CHARSET=UTF">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-06T13:46:45.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MYSQL数据库">
+<meta name="twitter:description" content="复习：更改数据UPDATE 表名称 SET ename=’tom’,age=20 WHERE id=10删除数据DELETE FROM 表名称 WHERE id=20;解决中文乱码问题.sql文件  设置文件存储的编码为 utf8；文件另存为 utf8客户端  sql文件开头  SET NAMES UTF8;服务器端  在创建数据库的时候CREATE DATABASE jd CHARSET=UTF">
+    
+        <link rel="alternate" type="application/atom+xml" title="wjknihao" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527260495745&di=531832bf7c1fefd930599043e575400b&imgtype=0&src=http%3A%2F%2Fimg5.duitang.com%2Fuploads%2Fitem%2F201608%2F11%2F20160811201242_MW82J.jpeg">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/234.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/123.gif">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">wjk</h5>
+          <a href="mailto:2251757502@qq.com" title="2251757502@qq.com" class="mail">2251757502@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.takemehand.com"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags/all"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wjknihao" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/56561wjkwujinke" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://user.qzone.qq.com/2251757502?ADUIN=2251757502&ADSESSION=1527244525&ADTAG=CLIENT.QQ.5575_MyTip.0&ADPUBNO=26808&source=namecardhoverstar" target="_blank" >
+                <i class="icon icon-lg icon-qq"></i>
+                qq
+              </a>
+            </li>
+        
+      </ul>
+     
+      
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">MYSQL数据库</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">MYSQL数据库</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-06T13:43:29.000Z" itemprop="datePublished" class="page-time">
+  2018-06-06
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#列约束"><span class="post-toc-number">1.</span> <span class="post-toc-text">列约束</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-外键约束"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.外键约束</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-检查约束"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.检查约束</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-项目中如何存储日期时间数据"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.项目中如何存储日期时间数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查询：简单查询和复杂查询"><span class="post-toc-number">2.</span> <span class="post-toc-text">查询：简单查询和复杂查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-简单查询-——-只查询特定的列"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.简单查询 —— 只查询特定的列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-简单查询-——-查询所有的列"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.简单查询 —— 查询所有的列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-简单查询-——-给列取别名"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.简单查询 —— 给列取别名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-简单查询-——-只显示不同的记录-合并相同的记录"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.简单查询 —— 只显示不同的记录/合并相同的记录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-简单查询-——-在查询时执行计算"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5.简单查询 —— 在查询时执行计算</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-简单查询-——-查询结果集的排序"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6.简单查询 —— 查询结果集的排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-简单查询-——-条件查询"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">7.简单查询 —— 条件查询</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第七篇文章"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">MYSQL数据库</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-06 21:43:29" datetime="2018-06-06T13:43:29.000Z"  itemprop="datePublished">2018-06-06</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>复习：<br>更改数据<br>UPDATE 表名称 SET ename=’tom’,age=20 WHERE id=10<br>删除数据<br>DELETE FROM 表名称 WHERE id=20;<br>解决中文乱码问题<br>.sql文件  设置文件存储的编码为 utf8；文件另存为 utf8<br>客户端  sql文件开头  SET NAMES UTF8;<br>服务器端  在创建数据库的时候<br>CREATE DATABASE jd CHARSET=UTF8;<br>列类型(数据类型)<br>  数值型<br>    整型: TINYINT/SMALLINT/INT/BIGINT<br>    浮点型: FLOAT(M,N) 4个 1234567  1. 234567*10^6<br>           DOUBLE(M,N) 8个字节<br>           DECIMAL(9,2)<br>    BOOL  TRUE/FALSE  1/0<br>  日期  DATE/TIME/DATETIME<br>  字符  VARCHAR/CHAR最多长度为255/TEXT</p>
+<h1 id="列约束"><a href="#列约束" class="headerlink" title="列约束"></a>列约束</h1><p>  主键约束  只能使用在整型数据，从小到大排序，不能为空NULL，不能重复;  PRIMARY KEY<br>  非空约束: 列不能为空，可以插入重复的数据  NOT NULL<br>  唯一约束: UNIQUE 不能插入重复的数据，可出现重复NULL<br>  默认约束: DEFAULT </p>
+<h2 id="1-外键约束"><a href="#1-外键约束" class="headerlink" title="1.外键约束"></a>1.外键约束</h2><p>  当前表的中值，要在另一个表中存在; 但是允许使用NULL<br>  foreign key(列名称) references 表名称(列名称)</p>
+<h2 id="2-检查约束"><a href="#2-检查约束" class="headerlink" title="2.检查约束"></a>2.检查约束</h2><p>  student( age tinyint check(age &gt;18 and age&gt;24) )<br>  mysql不支持检查约束。</p>
+<h2 id="3-项目中如何存储日期时间数据"><a href="#3-项目中如何存储日期时间数据" class="headerlink" title="3.项目中如何存储日期时间数据"></a>3.项目中如何存储日期时间数据</h2><p> 2018-06-05   2018/06/05    05/06/2018<br> 性别  男/女   F/M   BOY/GIRL<br> date<br>BOOL  1/0<br> internationalzation  i18n<br> 计算机元年  1970-1-1，通常记录一个时间，用某个时间与计算机元年之间的毫秒差<br>  1s = 1000ms  1m = 60s  1h=60m  1d=24h<br>  1y = 24<em>60</em>60<em>1000</em>365</p>
+<p>1000    1970-1-1 0:0:1<br>1000<em>60    1970-1-1 0:1:0<br>1000</em>60<em>60    1970-1-1 1:0:0<br>1000</em>60<em>60</em>24    1970-1-2 0:0:0<br> 开发中存储时间使用 BIGINT<br> 存储性别使用 BOOL<br>2.MySQL中使用自增列<br> AUTO_INCREMENT 自动增长，如果声明一个列为自增列，无需手动赋值，只需要指定为NULL，就会自动在当前数据中最大的值的基础上 +1 插入。<br> 注意：用于整型 PRIMARY KEY 的列，允许手动赋值。</p>
+<p>练习：编写jd.sql文件，创建数据库jd，包含如下两个表：<br>  部门表 dept ( did, dname )<br>     10  研发部<br>     20  市场部<br>     30  运营部<br>     40  综合管理部<br>  员工表emp (eid ename  sex  birthday  salary deptId )<br>     插入5~14条记录</p>
+<h1 id="查询：简单查询和复杂查询"><a href="#查询：简单查询和复杂查询" class="headerlink" title="查询：简单查询和复杂查询"></a>查询：简单查询和复杂查询</h1><h2 id="1-简单查询-——-只查询特定的列"><a href="#1-简单查询-——-只查询特定的列" class="headerlink" title="1.简单查询 —— 只查询特定的列"></a>1.简单查询 —— 只查询特定的列</h2><p>  select eid,ename,salary from emp;</p>
+<h2 id="2-简单查询-——-查询所有的列"><a href="#2-简单查询-——-查询所有的列" class="headerlink" title="2.简单查询 —— 查询所有的列"></a>2.简单查询 —— 查询所有的列</h2><p>  select * from emp;  </p>
+<h2 id="3-简单查询-——-给列取别名"><a href="#3-简单查询-——-给列取别名" class="headerlink" title="3.简单查询 —— 给列取别名"></a>3.简单查询 —— 给列取别名</h2><p>  select eid as 编号,ename as 姓名 from emp;<br>  练习：给eid-&gt;e, ename-&gt;n, sex-&gt;s<br>  SELECT eid AS e,ename AS n,sex AS s from emp;<br>  练习：给所有的列起中文别名<br>  SELECT eid AS 编号, ename AS 姓名,sex AS 性别,birthday AS 生日,salary AS 工资,deptId AS 部门 from emp;</p>
+<h2 id="4-简单查询-——-只显示不同的记录-合并相同的记录"><a href="#4-简单查询-——-只显示不同的记录-合并相同的记录" class="headerlink" title="4.简单查询 —— 只显示不同的记录/合并相同的记录"></a>4.简单查询 —— 只显示不同的记录/合并相同的记录</h2><p>  示例：查询员工都在哪些部门;<br>  SELECT DISTINCT(deptId) FROM emp;<br>  函数、方法<br>  练习：查询都有哪些性别?<br>  SELECT DISTINCT(sex) FROM emp;</p>
+<h2 id="5-简单查询-——-在查询时执行计算"><a href="#5-简单查询-——-在查询时执行计算" class="headerlink" title="5.简单查询 —— 在查询时执行计算"></a>5.简单查询 —— 在查询时执行计算</h2><p>  示例：计算2<em>3/5<br>  SELECT 2</em>3/5;<br>  示例：查询员工的姓名及年薪<br>  SELECT ename,salary<em>12 AS 年薪 from emp;<br>  练习：假设给每一个员工的工资加500，年终奖为2000，查询员工的一年收入是多少？<br>  SELECT ename AS 姓名,(salary+500)</em>12+2000 AS 收入 FROM emp;</p>
+<h2 id="6-简单查询-——-查询结果集的排序"><a href="#6-简单查询-——-查询结果集的排序" class="headerlink" title="6.简单查询 —— 查询结果集的排序"></a>6.简单查询 —— 查询结果集的排序</h2><p>  示例：查询所有的员工，按照工资升序排列<br>  SELECT <em> FROM emp ORDER BY salary ASC;<br>  示例：查询所有的员工，按照工资降序排列<br>  SELECT </em> FROM emp ORDER BY salary DESC;<br>  练习：查询所有的员工，按照年龄从大到小排序<br>  SELECT <em> FROM emp ORDER BY birthday ASC;<br>  练习：查询所有的员工，按照年龄从小到大排序<br>  SELECT</em>FROM emp ORDER BY birthday DESC;<br>  练习：查询所有员工，按照姓名降序排序<br>  SELECT <em> FROM emp ORDER BY ename DESC;<br>  练习：查询所有员工，按照生日降序，如果生日相同，按照姓名降序排列<br>  SELECT </em> FROM emp ORDER BY birthday DESC,ename DESC;<br>  练习：查询所有员工，按照性别排序，如果性别相同，按照收入排序<br>  SELECT * FROM emp ORDER BY sex ASC,salary ASC;</p>
+<p>ORDER BY可以按照 数值、字符编码、日期进行排序</p>
+<h2 id="7-简单查询-——-条件查询"><a href="#7-简单查询-——-条件查询" class="headerlink" title="7.简单查询 —— 条件查询"></a>7.简单查询 —— 条件查询</h2><p>  示例：查询出编号为5的员工所有信息<br>    SELECT * FROM emp WHERE eid=5; </p>
+<p>比较运算符 =  !=  &gt;  &lt;  &gt;=  &lt;= </p>
+<p>练习：查询出姓名为KING员工的编号、姓名、工资、生日<br>  SELECT eid,ename,salary,birthday FROM emp WHERE ename=’king’;<br>  练习：查询出20号部门下所有员工的信息<br>  SELECT <em> FROM emp WHERE deptId=20;<br>  练习：查询出所有的男员工信息<br>  SELECT </em> FROM emp WHERE sex=1;<br>  示例：查询出工资大于等于5000的员工所有信息<br>  SELECT <em> FROM emp WHERE salary&gt;=5000;<br>  练习：查询出1991-1-1之后出生的员工所有信息<br>  SELECT </em> FROM emp WHERE birthday&gt;’1991-1-1’;<br>  练习：查询出不在10号部门的所有员工信息<br>  SELECT <em> FROM emp WHERE deptId!=10;<br>练习：查询出暂时没有部门的员工信息<br>SELECT </em> FROM emp WHERE deptId IS NULL;<br>deptId=NULL 错误<br>  练习：查询出有明确部门的员工信息<br>  SELECT <em> FROM emp WHERE deptId IS NOT NULL;<br>  练习：查询出工资大于6000的女员工所有信息<br>  SELECT </em> FROM emp WHERE salary&gt;6000 AND sex=0;<br>  练习：查询出工资在5000~8000之间的员工信息<br>  SELECT <em> FROM emp WHERE salary&gt;=5000 AND salary&lt;=8000;<br>  SELECT </em> FROM emp WHERE salary BETWEEN 5000 AND 8000;<br>  练习：查询出工资小于4000或者大于8000的员工信息<br>  SELECT <em> FROM emp WHERE salary<4000 or="" salary="">8000;<br>  练习：查询出在1991年出生的员工信息<br>  SELECT </4000></em> FROM emp WHERE birthday&gt;=’1991-1-1’ AND birthday&lt;=’1991-12-31’;<br>  SELECT <em> FROM emp WHERE birthday BETWEEN ‘1991-1-1’ AND ‘1991-12-31’;<br>  练习：查询出在1990年之前或1993之后出生的员工信息<br>  SELECT </em> FROM emp WHERE birthday&lt;’1990-1-1’ OR birthday&gt;’1993-12-31’;<br>  练习：查询出在10和30号部门的员工信息<br>  SELECT <em> FROM emp WHERE deptId=10 OR deptId=30;<br>  SELECT </em> FROM emp WHERE deptId IN (10,30);<br>练习：查询出在10、30、50、80号部门的员工信息<br>  SELECT <em> FROM emp WHERE deptId=10 OR deptId=30 OR deptId=50 OR deptId=80;<br>  SELECT </em> FROM emp WHERE deptId IN (10,30,50,80);<br>  练习：查询出不在10和30号部门的员工信息<br>  SELECT * FROM emp WHERE deptId NOT IN(10,30);</p>
+<p>8.简单查询 —— 模糊条件查询<br>  示例：查询出姓名中包含字母E的员工所有信息<br>  SELECT <em> FROM emp WHERE ename LIKE ‘%e%’;<br>    练习：查询出姓名以E结尾的员工所有信息<br>  SELECT </em> FROM emp WHERE ename LIKE ‘%e’;<br>  练习：查询出姓名中倒数第二个字符是E的员工所有信息<br>  SELECT * FROM emp WHERE ename LIKE ‘%e_’;</p>
+<p>%  任意多个字符 &gt;= 0<br> _  任意一个字符 = 1<br>注意：以上两个符号不能和=连用，只能和LIKE连用。</p>
+<p>9.简单查询 —— 分页查询<br>  SELECT <em> FROM emp<br>WHERE…<br>ORDER BY …<br>LIMIT start,count…<br>  查询所有的男员工，按照工资升序排列。<br>  SELECT </em> FROM emp WHERE sex=1 ORDER BY salary ASC;<br>  查询出有43条记录，每页显示5条记录，一共有9页<br>  得出原理： 从哪开始，往后取的数量</p>
+<p>页码    开始    数量<br>第1页    0    5<br>第2页    5    5<br>第3页    10    5<br>第4页    15    5<br>第5页    20    5<br>LIMIT start, count<br>start  开始的值<br>count 查询的数量<br>查询第1页员工数据<br>SELECT <em> FROM emp LIMIT 0, 5;<br>查询第2页员工数据<br>SELECT </em> FROM emp LIMIT 5, 5;<br>查询第3页员工数据<br>SELECT <em> FROM emp LIMIT 10, 5;<br>查询第4页员工数据<br>SELECT </em> FROM emp LIMIT 15, 5;<br>查询第5页员工数据<br>SELECT <em> FROM emp LIMIT 20, 5;<br>….<br>查询第n页员工数据<br>SELECT </em> FROM emp LIMIT (n-1)*5, 5;</p>
+<p>练习：查询所有员工的分页信息，假设每页显示7条记录；分别查询前4页<br>SELECT <em> FROM emp LIMIT 0,7;<br>SELECT </em> FROM emp LIMIT 7,7;<br>SELECT <em> FROM emp LIMIT 14,7;<br>SELECT </em> FROM emp LIMIT 21,7;</p>
+<p>SELECT <em> FROM emp LIMIT (n-1)</em>count, count;<br>n页码(1,2,3…)  count每页的数量</p>
+<p>课后自学：<br>高阶面试题：MySQL中的存储引擎是什么？有哪些？<br>baike.baidu.com </p>
+<p>课后练习：<br>(1)删除今天课堂笔记中的所有示例和练习中的代码，自己根据注释文字写出所有的SQL语句 —— 经典练习强化！<br>(2)根据“学子商城数据库结构”设计图及说明文档，编写.sql文件，写出创建库和表所需的所有语句。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-06-06T13:46:45.069Z" itemprop="dateUpdated">2018-06-06 21:46:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/06/06/第七篇文章/" target="_blank" rel="external">http://wjknihao.github.io/2018/06/06/第七篇文章/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://wjknihao.github.io">
+            <img src="/img/123.gif" alt="wjk">
+            wjk
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/06/第七篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/06/第七篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/06/第七篇文章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/06/第七篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/06/第七篇文章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/06/06/第八篇文章/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">mysql复杂查询andJavaScript基础</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/06/06/第六篇文章/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">MYSQL数据库</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'true' == 'true',
+            verify: 'true' == 'true',
+            appId: "I2tEkLgP58tv16kQjCL4OLCj-gzGzoHsz",
+            appKey: "UOw37lC8St78BGjXwxzWk0G0",
+            avatar: "mm",
+            placeholder: "欢迎留言，谢谢老板~~~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板！请多打赏！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wx.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wx.png" data-alipay="/img/zfb.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26092806&auto=1&height=66"></iframe>
+        
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>wjk &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">wjk</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://wjknihao.github.io/2018/06/06/第七篇文章/&title=《MYSQL数据库》 — wjknihao&pic=http://wjknihao.github.io/img/123.gif" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wjknihao.github.io/2018/06/06/第七篇文章/&title=《MYSQL数据库》 — wjknihao&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://wjknihao.github.io/2018/06/06/第七篇文章/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《MYSQL数据库》 — wjknihao&url=http://wjknihao.github.io/2018/06/06/第七篇文章/&via=http://wjknihao.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://wjknihao.github.io/2018/06/06/第七篇文章/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aMW7DMAwF0Nz/0u7SIQVq55OsC1h6mow4sfQ8MKLI1ysex9s4+/z97tn3r5+Z/Go0MDAwHss4Lkcy5dmvkkUn19EsGBgYGzDOJr6+robjHuN6bRgYGBjJd3ph+vqlYGBgYPxtwE2yy3yhGBgYGJMkNlncdaqZbBBvz8UxMDAeyKgGzf+8vqW+gYGB8SjGURx52TIPqZP1fD8HAwNjaUYe4KpH/JPEuLoeDAyMHRjVRVdLBb1NZ1IcfU3ePQYGxkMY87aJanjNi51JUP6xw8XAwFiaUT2I7zV79RLdqISJgYGxASNqZRiklHl4TWb/BY+BgbE0o3o0P2/RyEsLeZMZBgbG2ow8sM6DYN5YVk5rMTAwtmHkR2/5BnFUnchDMwYGxgaMBFAtYU6KBPm2slDNwMDAWIhRDbvVokL+hEKAxsDAWJqRH/HnB2rXy+odzOVgDAyMVRnVZVXT17wMUG04w8DA2IHRSyyrbWHJJ71dHwYGxg6MfOJ5yjqZJQr9GBgY2zDyBDIPiPMSQlScwMDA2JjRa8LIT/h6wRcDA2NPRvWYvjflJH39MAsGBsaijKM4qsXFZKHzMicGBsbajDv6rHpbwGoQz18TBgbGGoxqYTLZ/CWYeQta4d8DAwNjCUY18M1bLnr/AB/2uRgYGBjx3Tzt7BVKMTAwMOaH/r2iwqRxFgMDYwdGstXLN3yTIkGVjYGBsQOj1+LQa6dIXtPk+RgYGMsxvgAgcZNh2R1PNQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1273847630&web_id=1273847630')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '￣へ￣滚回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(>▽<)留下来！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
